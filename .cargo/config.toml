@@ -1,6 +1,6 @@
 {%- if arch == "Cortex-M" -%}
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
-{%- else %}
+{%- else -%}
 [target.{{ rust_target }}]
 {% endif -%}
 {% if arch != "Xtensa" -%}
