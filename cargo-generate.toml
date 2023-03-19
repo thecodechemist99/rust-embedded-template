@@ -4,6 +4,7 @@ ignore = [
     ".git",
     ".github",
     "README.md",
+    "pre-script.rhai",
 ]
 
 [hooks]
