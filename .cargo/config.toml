@@ -3,7 +3,7 @@
 {%- else -%}
 [target.{{ rust_target }}]
 {% endif -%}
-{% if arch != "Xtensa" -%}
+{% if arch != "Xtensa" %}
 # You might want to replace the generic architecture with your
 # chip’s name as listed in `probe-run --list-chips`.
 {% endif -%}
