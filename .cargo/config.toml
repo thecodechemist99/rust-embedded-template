@@ -1,6 +1,6 @@
 {%- if arch == "Cortex-M" %}
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
-{% else %}
+{%- else -%}
 [target.{{ rust_target }}]
 {% endif -%}
 {% if arch != "Xtensa" %}
@@ -10,9 +10,9 @@
 runner = "{{ runner }}"
 
 rustflags = [
-{%- if arch == "Xtensa" %}
+{% if arch == "Xtensa" %}
   "-C", "link-arg=-nostartfiles",
-{% endif %}
+{% endif -%}
   "-C", "link-arg=--nmagic",
   "-C", "link-arg=-Tlink.x",
   "-C", "link-arg=-Tdefmt.x",
@@ -21,7 +21,7 @@ rustflags = [
 [build]
 target = "{{ rust_target }}"
 
-{%- if build_core %}
+{% if build_core %}
 [unstable]
 build-std = ["core"]
 {% endif -%}
