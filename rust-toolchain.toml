@@ -1,0 +1,7 @@
+[toolchain]
+{% if nightly %}
+channel = "nightly"
+{% else %}
+channel = "stable"
+{% endif %}
+components = ["rustfmt", "rustc-dev"]

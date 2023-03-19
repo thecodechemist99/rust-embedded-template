@@ -1,0 +1,30 @@
+[target.{{ rust_target }}]
+{% if arch != "Xtensa" %}
+# You might want to replace the generic architecture with your
+# chip’s name as listed in `probe-run --list-chips`.
+{% endif %}
+runner = "{{ runner }}"
+
+rustflags = [
+{% if arch == "Xtensa" %}
+  "-C", "link-arg=-nostartfiles",
+{% endif %}
+  "-C", "link-arg=--nmagic",
+  "-C", "link-arg=-Tlink.x",
+  "-C", "link-arg=-Tdefmt.x",
+]
+
+[build]
+{% if arch == "Xtensa" %}
+target = "{{ rust_target }}"
+{% else %}
+target = "{{ build_target }}"
+{% endif %}
+
+{% if build_core %}
+[unstable]
+build-std = ["core"]
+{% endif %}
+
+[env]
+DEFMT_LOG = "trace"

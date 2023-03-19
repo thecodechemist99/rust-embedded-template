@@ -1,0 +1,18 @@
+[package]
+name = "rust-embedded-template"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+
+
+[profile.dev]
+strip = false
+
+[profile.release]
+opt-level = "z"
+codegen-units = 1
+lto = true
+strip = true
+panic = 'abort'
