@@ -1,1 +1,0 @@
-system::command("cargo", ["fmt"]);
