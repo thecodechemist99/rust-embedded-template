@@ -20,7 +20,7 @@ let targets = #{
         runner: "espflash flash --monitor",
     },
     "Cortex-M0": #{
-        rust_target: "'cfg(all(target_arch = "arm", target_os = "none"))'",
+        rust_target: "'cfg(all(target_arch = \"arm\", target_os = \"none\"))'",
         build_target: "thumbv6m-none-eabi",
         runner: "probe-run --chip Cortex-M0",
     },
