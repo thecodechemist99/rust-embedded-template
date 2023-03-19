@@ -1,5 +1,9 @@
+{%- if arch == "Cortex-M" %}
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+{% else %}
 [target.{{ rust_target }}]
-{%- if arch != "Xtensa" %}
+{% endif -%}
+{% if arch != "Xtensa" %}
 # You might want to replace the generic architecture with your
 # chip’s name as listed in `probe-run --list-chips`.
 {% endif -%}
@@ -15,15 +19,12 @@ rustflags = [
 ]
 
 [build]
-{%- if arch == "Xtensa" %}
 target = "{{ rust_target }}"
-{% else %}
-target = "{{ build_target }}"
-{% endif -%}
 
 {%- if build_core %}
 [unstable]
 build-std = ["core"]
-{% endif %}
+{% endif -%}
+
 [env]
 DEFMT_LOG = "trace"
