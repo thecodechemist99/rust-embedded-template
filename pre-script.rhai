@@ -68,19 +68,20 @@ let targets = #{
 
 let mcu_str = "Which MCU to target?";
 let core_str = "Build core? (unstable)";
+
 switch variable::get("arch") {
     "Cortex-M" => {
         let mcu = variable::prompt(mcu_str, "Cortex-M0", ["Cortex-M0", "Cortex-M0+", "Cortex-M1", "Cortex-M3", "Cortex-M4", "Cortex-M7", "Cortex-M23", "Cortex-M33", "Cortex-M35P"]);
         variable::set("mcu", mcu);
 
-        variable::set("build_core", variable::prompt{core_str, default = false});
+        variable::set("build_core", variable::prompt{core_str, false});
     },
     "Xtensa" => {
         let mcu variable::prompt(mcu_str, "esp32", ["esp32", "esp32s2", "esp32s3", "esp8266"]);
         variable::set("mcu", mcu);
     },
     _ => {
-        variable::set("build_core", variable::prompt{core_str, default = false});
+        variable::set("build_core", variable::prompt{core_str, false});
     },
 }; 
 
