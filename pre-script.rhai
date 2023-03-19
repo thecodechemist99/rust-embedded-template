@@ -71,8 +71,8 @@ let targets = #{
 };
 
 let target = variable::get("mcu");
-debug(target);
 let target_properties = targets.get(target);
 for key in target_properties.keys() {
     variable::set(key, target_properties.get(key));
+    debug(variable::get(key));
 }
