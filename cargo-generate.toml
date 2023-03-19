@@ -1,5 +1,5 @@
 [template]
-cargo_generate_version = "=0.18.1"
+cargo_generate_version = ">=0.18.0"
 ignore = [
     ".git",
     ".github",

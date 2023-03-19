@@ -24,7 +24,7 @@ target = "{{ rust_target }}"
 {% if build_core -%}
 [unstable]
 build-std = ["core"]
-{% endif -%}
+{%- endif %}
 
 [env]
 DEFMT_LOG = "trace"
