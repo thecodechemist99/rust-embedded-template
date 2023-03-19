@@ -10,9 +10,9 @@
 runner = "{{ runner }}"
 
 rustflags = [
-{%- if arch == "Xtensa" %}
+{% if arch == "Xtensa" %}
   "-C", "link-arg=-nostartfiles",
-{% endif %}
+{% endif -%}
   "-C", "link-arg=--nmagic",
   "-C", "link-arg=-Tlink.x",
   "-C", "link-arg=-Tdefmt.x",
