@@ -77,7 +77,7 @@ switch variable::get("arch") {
         variable::set("build_core", variable::prompt(core_str, false));
     },
     "Xtensa" => {
-        let mcu variable::prompt(mcu_str, "esp32", ["esp32", "esp32s2", "esp32s3", "esp8266"]);
+        let mcu = variable::prompt(mcu_str, "esp32", ["esp32", "esp32s2", "esp32s3", "esp8266"]);
         variable::set("mcu", mcu);
     },
     _ => {
