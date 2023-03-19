@@ -3,14 +3,12 @@ let core_str = "Build core? (unstable)";
 
 switch variable::get("arch") {
     "Cortex-M" => {
-        let mcu = variable::prompt(mcu_str, "Cortex-M0", ["Cortex-M0", "Cortex-M0+", "Cortex-M1", "Cortex-M3", "Cortex-M4", "Cortex-M7", "Cortex-M23", "Cortex-M33", "Cortex-M35P"]);
-        variable::set("mcu", mcu);
-
+        variable::set("mcu", variable::prompt(mcu_str, "Cortex-M0", ["Cortex-M0", "Cortex-M0+", "Cortex-M1", "Cortex-M3", "Cortex-M4", "Cortex-M7", "Cortex-M23", "Cortex-M33", "Cortex-M35P"]));
         variable::set("build_core", variable::prompt(core_str, false));
     },
     "Xtensa" => {
-        let mcu = variable::prompt(mcu_str, "esp32", ["esp32", "esp32s2", "esp32s3", "esp8266"]);
-        variable::set("mcu", mcu);
+        variable::set("mcu", variable::prompt(mcu_str, "esp32", ["esp32", "esp32s2", "esp32s3", "esp8266"]));
+        variable::set("build_core", true);
     },
     _ => {
         variable::set("build_core", variable::prompt(core_str, false));
@@ -20,22 +18,18 @@ switch variable::get("arch") {
 let targets = #{
     esp32: #{
         rust_target: "xtensa-esp32-none-elf",
-        // build_core: true,
         runner: "espflash flash --monitor",
     },
     esp32s2: #{
         rust_target: "xtensa-esp32s2-none-elf",
-        // build_core: true,
         runner: "espflash flash --monitor",
     },
     esp32s3: #{
         rust_target: "xtensa-esp32s3-none-elf",
-        // build_core: true,
         runner: "espflash flash --monitor",
     },
     esp8266: #{
         rust_target: "xtensa-esp8266-none-elf",
-        // build_core: true,
         runner: "espflash flash --monitor",
     },
     "Cortex-M0": #{
