@@ -13,19 +13,6 @@ prompt = "Select target architecture:"
 choices = ["Cortex-M", "Xtensa", "RISC-V", "Other"]
 default = "Cortex-M"
 
-[conditional.'arch == "Cortex-M"'.placeholders]
-mcu = { type = "string", promt = "Which MCU to target?", choices = ["Cortex-M0", "Cortex-M0+", "Cortex-M1", "Cortex-M3", "Cortex-M4", "Cortex-M7", "Cortex-M23", "Cortex-M33", "Cortex-M35P"], default = "Cortex-M0" }
-build_core = { type = "bool", prompt = "Build core? (unstable)", default = false }
-
-[conditional.'arch == "Xtensa"'.placeholders]
-mcu = { type = "string", promt = "Which MCU to target?", choices = ["esp32", "esp32s2", "esp32s3", "esp8266"], default = "esp32" }
-
-[conditional.'arch == "RISC-V"'.placeholders]
-build_core = { type = "bool", prompt = "Build core? (unstable)", default = false }
-
-[conditional.'arch == "Other"'.placeholders]
-build_core = { type = "bool", prompt = "Build core? (unstable)", default = false }
-
 [placeholders.nightly]
 type = "bool"
 prompt = "Use nightly toolchain?"
