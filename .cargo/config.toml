@@ -21,7 +21,7 @@ rustflags = [
 [build]
 target = "{{ rust_target }}"
 
-{% if build_core -%}
+{%- if build_core -%}
 [unstable]
 build-std = ["core"]
 {%- endif %}
