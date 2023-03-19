@@ -2,8 +2,8 @@
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
 {% else %}
 [target.{{ rust_target }}]
-{% endif -%}
-{% if arch != "Xtensa" %}
+{% endif %}
+{% if arch != "Xtensa" -%}
 # You might want to replace the generic architecture with your
 # chip’s name as listed in `probe-run --list-chips`.
 {% endif -%}
