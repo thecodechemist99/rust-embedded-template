@@ -25,6 +25,5 @@ target = "{{ build_target }}"
 [unstable]
 build-std = ["core"]
 {% endif %}
-
 [env]
 DEFMT_LOG = "trace"
