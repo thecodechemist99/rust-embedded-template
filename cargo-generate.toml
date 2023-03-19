@@ -11,4 +11,4 @@ pre = ["pre-script.rhai"]
 
 [placeholders]
 arch = { type = "string", prompt = "Select target architecture:", choices = ["Cortex-M", "Xtensa", "RISC-V", "Other"], default = "Cortex-M" }
-nightly = { type = "bool", prompt = "Use nightly toolchain?", default = false }
+toolchain = { type = "string", prompt = "Select toolchain:", choices = ["stable", "nightly"], default = "stable" }
