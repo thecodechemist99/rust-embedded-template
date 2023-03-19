@@ -6,6 +6,10 @@ ignore = [
     "README.md",
 ]
 
+[hooks]
+pre = ["pre-script.rhai"]
+post = ["post-script.rhai"]
+
 [placeholders.arch]
 type = "string"
 prompt = "Select target architecture:"
