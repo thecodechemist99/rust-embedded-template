@@ -4,7 +4,6 @@ ignore = [
     ".git",
     ".github",
     "README.md",
-    "pre-script.rhai",
 ]
 
 [placeholders.arch]
